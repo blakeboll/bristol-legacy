@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://unpkg.com/css-doodle@0.19.1/css-doodle.min.js"></script>
+  <title>Kaake36xd</title>
+
+  <style id="doodle-styles">
+    body {
+      background-color: skyblue;
+      overflow: hidden;
+    }
+  </style>
+  <script src="booty.js"></script>
+</head>
+<body class="cunt">
+  <css-doodle click-to-update id="doodle1">
+    :doodle {
+      @grid: 100x100;
+      width: 100vw;
+      height: 100vh;
+      background: @shaders(
+        texture_0 {
+          @grid: 50 / 100%;
+          background: linear-gradient(
+            @r(360deg),
+            @stripe.@m4.@p(#00ffff, #ff00ff, #ffff00, #000)
+          );
+        }
+        fragment {
+          void main() {
+            vec2 p = gl_FragCoord.xy/u_resolution.xy;
+            vec2 c = vec2(.5, .5);
+            vec2 uv = p.xy - c;
+            float ratio = u_resolution.x/u_resolution.y;
+            float len = length(uv * vec2(ratio, 1.));
+            float t = atan(uv.y, uv.x) +
+              2. * 3.141593 * smoothstep(.5, 0., len);
+            float r = length(uv) + .1;
+            vec2 coords = vec2(r*cos(t),r*sin(t)) + c;
+            gl_FragColor = texture2D(texture_0, coords);
+          }
+        }
+      );
+      transition: ease .8s;
+    }
+    --hue: calc(180 + 1.5 * @row * 7);
+    background: hsl(var(--hue), 50%, 70%);
+    margin: -.5px;
+    transition: clip-path 1s;
+    clip-path: polygon(@pick(
+      '26% 7%, 45% 7%, 73% 10%, 54% 25%, 76% 69%, 50% 97%, 21% 95%, 47% 63%',
+      '18% 4%, 47% 60%, 70% 8%, 78% 55%, 79% 89%, 49% 95%, 13% 89%, 13% 52%',
+      '30% 0%, 49% 40%, 100% 30%, 87% 62%, 70% 100%, 40% 56%, 0% 70%, 13% 36%',
+      '29% 12%, 70% 12%, 70% 37%, 56% 24%, 61% 87%, 41% 87%, 43% 24%, 30% 38%',
+      '50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%',
+      '50% 30%, 100% 0%, 70% 50%, 100% 100%, 50% 70%, 0% 100%, 30% 50%, 0% 0%',
+    ));
+  </css-doodle>
+</body>
+</html>
